@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=@kebab@
+Exec=@kebab@
+Icon=@app_id@
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true
