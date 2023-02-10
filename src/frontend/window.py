@@ -1,7 +1,7 @@
 from gi.repository import Gtk
 
 
-@Gtk.Template(resource_path='@app_id_path@/window.ui')
+@Gtk.Template(resource_path='/@app_id_path@/window.ui')
 class @pascal_project@Window(Gtk.ApplicationWindow):
     __gtype_name__ = '@pascal_project@Window'
 

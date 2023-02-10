@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=@kebab@
-Exec=@kebab@
+Name=@kebab_project@
+Exec=@kebab_project@
 Icon=@app_id@
 Terminal=false
 Type=Application
