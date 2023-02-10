@@ -56,14 +56,16 @@ def eval_vars(val: str):
         "@author@": author
     })
 
+def replace_in_file(fs:str):
+    file = open(fs, "r")
+    content = eval_vars(file.read())
+    open(fs, "w+").write(content)
 
 def replace_in_dir(folder: str):
     for fs in os.listdir(folder):
         fs = os.path.join(folder, fs)
         if os.path.isfile(fs):
-            file = open(fs, "r")
-            content = eval_vars(file.read())
-            open(fs, "w+").write(content)
+            replace_in_file(fs)
         if os.path.isdir(fs):
             replace_in_dir(fs)
         os.rename(fs, eval_vars(fs))
@@ -73,3 +75,4 @@ for f in include_dirs:
     replace_in_dir(os.path.join(root, f))
 
 os.rename(os.path.join(root, "src"), os.path.join(root, snake_project))
+replace_in_file(os.path.join(root,"meson.build"))
