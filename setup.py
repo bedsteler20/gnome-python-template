@@ -17,7 +17,7 @@ def kebab_case(s):
 
 
 def pascal_case(value):
-    return "".join(value.title().split())
+    return "".join(value.title().split()).replace("_", "")
 
 
 def dict_replace_str(inp: str, dat: dict[str, str]) -> str:
@@ -35,12 +35,12 @@ include_dirs = [
     "po"
 ]
 
-project_name =  input("Project Name: ")
+project_name = input("Project Name: ")
 kebab_project = kebab_case(project_name)
 snake_project = snake_case(kebab_project)
 pascal_project = pascal_case(snake_project)
 
-app_id =  input("App Id: ")
+app_id = input("App Id: ")
 app_id_path = app_id.replace(".", "/")
 
 author = input("Whats your name: ")
@@ -56,10 +56,12 @@ def eval_vars(val: str):
         "@author@": author
     })
 
-def replace_in_file(fs:str):
+
+def replace_in_file(fs: str):
     file = open(fs, "r")
     content = eval_vars(file.read())
     open(fs, "w+").write(content)
+
 
 def replace_in_dir(folder: str):
     for fs in os.listdir(folder):
@@ -75,4 +77,4 @@ for f in include_dirs:
     replace_in_dir(os.path.join(root, f))
 
 os.rename(os.path.join(root, "src"), os.path.join(root, snake_project))
-replace_in_file(os.path.join(root,"meson.build"))
+replace_in_file(os.path.join(root, "meson.build"))
