@@ -35,12 +35,12 @@ include_dirs = [
     "po"
 ]
 
-project_name = "Test Project"  # input("Project Name: ")
+project_name =  input("Project Name: ")
 kebab_project = kebab_case(project_name)
 snake_project = snake_case(kebab_project)
 pascal_project = pascal_case(snake_project)
 
-app_id = "com.bedsteler20.TestProject"  # input("App Id: ")
+app_id =  input("App Id: ")
 app_id_path = app_id.replace(".", "/")
 
 author = input("Whats your name: ")
