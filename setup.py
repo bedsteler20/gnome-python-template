@@ -32,7 +32,8 @@ include_dirs = [
     "build-aux",
     "src",
     "data",
-    "po"
+    "po",
+    ".vscode"
 ]
 
 project_name = input("Project Name: ")
