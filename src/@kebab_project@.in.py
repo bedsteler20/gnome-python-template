@@ -15,25 +15,10 @@ def start_debugger():
     print("Running in debug mode")
     try:
         import debugpy
-        import json
     except ImportError:
         print("Unable to locate debugpy package can't start debugger")
         return
-    
-    debug_options = {
-        "type": "python",
-        "request": "attach",
-        "connect": {"host": "localhost", "port": 5678},
-        "pathMappings": [{
-            "localRoot": os.path.join(sourceroot, 'src'),
-            "remoteRoot": os.path.join(pkgdatadir, "@snake_project@")
-        }],
-        "justMyCode": True,
-    }
-
-    debugpy.listen(debug_options["connect"]["port"])
-    os.system(
-        f"xdg-open 'vscode://fabiospampinato.vscode-debug-launcher/launch?args={json.dumps(debug_options)}'")
+    debugpy.listen(5678)
     print("Waiting for debugger connection ...")
     debugpy.wait_for_client()
     print("Debugger connected!")

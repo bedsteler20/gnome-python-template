@@ -4,9 +4,6 @@
     ".flatpak/**": true,
     "_build/**": true
   },
-  "python.autoComplete.extraPaths": [
-    "${workspaceFolder}/.flatpak/python-types"
-  ],
   "files.associations": {
     "*.wrap": "ini"
   },
